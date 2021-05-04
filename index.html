@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>vue-boolzapp</title>
+</head>
+
+<body>
+
+
+    <div id="app">
+
+        <div class="container display-flex bordonero">
+            <div class="contact-container bordonero">
+                <div class="display-flex my-contact bordonero">
+                    <div class="myavatar display-flex">
+                        <img src="img\songoku.jpg" alt="">
+                    </div>
+                    <div class="flex-div"></div>
+                    <div class="myicon display-flex">
+                        <a href="#"><i class="fa fa-circle-o-notch color-icon" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-comment color-icon" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-align-justify color-icon" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="mynoti bordonero display-flex">
+                    <div><i class="fa fa-bell-slash fa-lg noifica" aria-hidden="true"></i></div>
+                    <div class="flex-div display-flex flex-column">
+                        <strong>Ricevi notifiche di nuovi messaggi</strong>
+                        <a href="#">Attiva notifiche desktop</a>
+
+                    </div>
+
+                </div>
+                <input  class="search"type="text" placeholder="Cerca o inizia una nuova chat">
+                <div class="overauto">
+                    <div v-for="element in userDragonball" class="display-flex bg-white">
+                        <div class="myavatar display-flex">
+                            <img :src="element.avatar" alt="">
+                            <div class="flex-div display-flex flex-column">
+                                <div> <strong>{{element.name}}</strong></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="chat-container bordonero">
+                <div class="display-flex my-contact bordonero">
+                    <div class="myavatar display-flex">
+                        <img src="img\songoku.jpg" alt="">
+                    </div>
+                    <div class="flex-div"></div>
+                    <div class="myicon display-flex">
+                        <a href="#"><i class="fa fa-search color-icon" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-paperclip color-icon" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-align-justify color-icon" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="bg-chat">
+                    <div></div>
+                
+               
+                </div>
+                <div class=" display-flex writetext">
+                    <div>
+                        <i class="fa fa-smile-o color-icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-div">
+                        <input class="search"type="text" placeholder="Scrivi un messaggio" >
+                    </div>
+                    <div ><i class="fa fa-microphone color-icon" aria-hidden="true"></i></div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bg-green">
+        </div>
+
+        <div class="bg-body">
+        </div>
+    </div>
+    <script src="data.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

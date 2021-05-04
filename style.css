@@ -1,0 +1,135 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+
+
+.bg-green{
+    height:20vh;
+    width: 100%;
+    background-color: rgb(0, 151, 136);
+    position: absolute;
+    top: 0;
+}
+.bg-body{
+    height:80vh;
+    width: 100%;
+    background-color: rgb(218, 219, 213);
+    position: absolute;
+    bottom: 0;
+}
+
+.container{
+    margin: auto;
+    margin-top: 10vh;
+    height: 800px;
+    max-width: 80%;
+    position: relative;
+    z-index: 1;
+}
+.display-flex{
+    display: flex;
+}
+
+.contact-container{
+    
+    height: 100%;
+    width: 30%;
+}
+
+.chat-container{
+    position: relative;
+    height: 100%;
+    width: 70%;
+}
+
+
+
+.my-contact{
+    padding:  8px 15px;
+    background-color: rgb(237, 237, 237);
+    border-left: 1px solid gray;
+}
+
+.myavatar img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.myavatar, .myicon{
+    align-items: center;
+}
+
+.flex-div{
+    flex-grow:1 ;
+} 
+
+.color-icon{
+    color: rgb(128, 128, 128);
+    font-size: 20px;
+    padding: 8px;
+}
+
+.mynoti{
+    background-color: rgb(158, 225, 254);
+    padding:  10px;
+
+}
+
+.mynoti *{
+    color: rgb(128, 128, 128);
+}
+.noifica{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    color: rgb(158, 225, 254);
+    
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;  
+}
+
+.bg-white{
+    background-color: white;
+    border-bottom: 1px solid grey;
+    padding:  10px 15px;
+}
+
+.overauto{
+    overflow: auto;
+    height: 620px ;
+}
+
+.search{
+    width: 100%;
+    border-radius: 15px;
+    height: 35px;
+    padding: 5px;
+}
+.bg-chat{
+    background-color: rgb(229, 220, 213);
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
+}
+
+.writetext{
+    height: 50px;
+    position: absolute;
+    bottom:5px;
+    background-color: rgb(237, 237, 237);
+    align-items: center;
+    width: 100%
+}
