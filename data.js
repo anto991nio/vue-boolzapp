@@ -6,17 +6,17 @@ const globalUsersList = [
         messages: [
             {
                 date: '13/08/2020 15:30:55',
-                text: 'Hai portato a spasso il cane?',
+                text: 'Ciao Vegeta',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
+                text: 'Riesci a trasformarti in super sayan 3?',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 16:15:22',
-                text: 'Tutto fatto!',
+                text: 'Sparisci Kakarot',
                 status: 'received'
             }
         ],
@@ -28,17 +28,17 @@ const globalUsersList = [
         messages: [
             {
                 date: '20/03/2020 16:30:00',
-                text: 'Ciao come stai?',
+                text: 'Non tornerò a casa per qualche anno',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
-                text: 'Bene grazie! Stasera ci vediamo?',
+                text: 'Ma come Goku, abbiamo finito i soldi devi andare a lavorare',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
-                text: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                text: 'Prova a chiedere dei soldi a Bulma, lei è ricchissima',
                 status: 'sent'
             }
         ],
@@ -49,34 +49,34 @@ const globalUsersList = [
         messages: [
             {
                 date: '28/03/2020 10:10:40',
-                text: 'La Marianna va in campagna',
+                text: 'Tua moglie mi ha chiesto dei soldi',
                 status: 'received'
             },
             {
                 date: '28/03/2020 10:20:10',
-                text: 'Sicuro di non aver sbagliato chat?',
+                text: 'Si sono stato io a dirle di farlo',
                 status: 'sent'
             },
             {
                 date: '28/03/2020 16:15:22',
-                text: 'Ah scusa!',
+                text: 'Ok ma in cambio dovrai cercare le sfere del drago',
                 status: 'received'
             }
         ],
     },
     {
-        name: 'Crili',
+        name: 'Crilin',
         avatar: 'img/crilin.jpg',
         visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                text: 'Per favore puoi cercare le sfere per Bulma io non posso devo allenarmi',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                text: 'Si, ma preferirei andare al cinema',
+                text: 'Si, lo farò spero solo di non rimanerci secco',
                 status: 'received'
             }
         ],
@@ -88,13 +88,13 @@ const globalUsersList = [
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                text: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
+                text: 'Oh oh oh ucciderò il tuo amico pelato crilin',
+                status: 'received'
             },
             {
                 date: '10/01/2020 15:50:00',
-                text: 'Si, ma preferirei andare al cinema',
-                status: 'received'
+                text: 'Non osare o ti ucciderò di nuovo',
+                status: 'sent'
             }
         ],
     },
@@ -105,12 +105,12 @@ const globalUsersList = [
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                text: 'Piccolo come sta Gohan? Lo stai allenando?',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                text: 'Si, ma preferirei andare al cinema',
+                text: "Si, ha un'aura potentissima, è strabiliante",
                 status: 'received'
             }
         ],
@@ -122,12 +122,12 @@ const globalUsersList = [
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                text: 'Verrò ad allenarmi con lei Dio Beerus',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                text: 'Si, ma preferirei andare al cinema',
+                text: 'Ok ma portami delle prelibatezze',
                 status: 'received'
             }
         ],
@@ -139,12 +139,12 @@ const globalUsersList = [
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                text: 'Genio hai qualche fagiolo',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                text: 'Si, ma preferirei andare al cinema',
+                text: 'Purtroppo no sono terminati',
                 status: 'received'
             }
         ],
@@ -156,12 +156,12 @@ const globalUsersList = [
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                text: 'Dove sei figliolo?',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                text: 'Si, ma preferirei andare al cinema',
+                text: 'Mi sto allenando con Piccolo, ormai è lui mio padre',
                 status: 'received'
             }
         ],
@@ -173,14 +173,15 @@ const globalUsersList = [
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                text: 'Goten sei con la mamma?',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                text: 'Si, ma preferirei andare al cinema',
+                text: 'Si papà',
                 status: 'received'
             }
         ],
     },
 ];
+

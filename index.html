@@ -19,7 +19,7 @@
 
         <div class="container display-flex bordonero">
             <div class="contact-container bordonero">
-                <div class="display-flex my-contact bordonero">
+                <div class="display-flex my-contact bordonero" @click="messaggioRiChange">
                     <div class="myavatar display-flex">
                         <img src="img\songoku.jpg" alt="">
                     </div>
@@ -30,7 +30,7 @@
                         <a href="#"><i class="fa fa-align-justify color-icon" aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <div class="mynoti bordonero display-flex">
+                <div class="mynoti bordonero display-flex" @click="messaggioRiChange">
                     <div><i class="fa fa-bell-slash fa-lg noifica" aria-hidden="true"></i></div>
                     <div class="flex-div display-flex flex-column">
                         <strong>Ricevi notifiche di nuovi messaggi</strong>
@@ -39,27 +39,30 @@
                     </div>
 
                 </div>
-                <div class="display-flex">
-                    <label for="search-input"><i class="fa fa-search color-icon searchcontact" aria-hidden="true"></i></label>
-                    <input v-model="query"class="search flex-div" id="search-input" type="text"
+                <div class="display-flex" @click="messaggioRiChange">
+                    <label for="search-input"><i class="fa fa-search color-icon searchcontact"
+                            aria-hidden="true"></i></label>
+                    <input v-model="query" class="search flex-div" id="search-input" type="text"
                         placeholder="Cerca o inizia una nuova chat">
                 </div>
-                <div class="overauto">
-                    <div v-for="element of searchUser" class="display-flex bg-white"
+                <div class="overauto" @click="messaggioRiChange">
+                    <div v-for="element of searchUser" class="display-flex bg-white posizione"
                         :class="{'bg-gray': element.name === activeUser.name}" @click="onUserClick(element)">
-                        <div class="myavatar display-flex">
+                        <div class="myavatar display-flex ">
                             <img :src="element.avatar" alt="">
-                            <div class="flex-div display-flex flex-column">
+                            <div class="flex-div display-flex flex-column ">
                                 <div> <strong>{{element.name}}</strong></div>
                                 <div>{{element.messages[element.messages.length-1].text}}</div>
+                                
                             </div>
+                            
                         </div>
-
+                        <div class="data">{{ activeUserLastAcces}}</div>
                     </div>
                 </div>
             </div>
             <div class="chat-container bordonero">
-                <div class="display-flex my-contact bordonero">
+                <div class="display-flex my-contact bordonero" @click="messaggioRiChange">
                     <div class="myavatar display-flex">
                         <img :src="activeUser.avatar" alt="">
                     </div>
@@ -73,7 +76,7 @@
                         <a href="#"><i class="fa fa-align-justify color-icon" aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <div class="bg-chat display-flex flex-column">
+                <div class="bg-chat display-flex flex-column" @click="messaggioRiChange">
                     <div v-for="messages of activeUser.messages" class="messaggio display-flex flex-column">
                         <span :class="messages.status">{{messages.text}}<i class="fa fa-caret-down fa-3x spunta"
                                 aria-hidden="true"></i>
@@ -94,7 +97,8 @@
 
 
                     <div v-if="!messaggio"><i class="fa fa-microphone color-icon" aria-hidden="true"></i></div>
-                    <div v-else><i class="fa fa-paper-plane color-icon" aria-hidden="true "@click="addMessages"></i></div>
+                    <div v-else><i class="fa fa-paper-plane color-icon" aria-hidden="true " @click="addMessages"></i>
+                    </div>
 
                 </div>
 
@@ -107,6 +111,8 @@
         <div class="bg-body">
         </div>
     </div>
+
+
     <script src="data.js"></script>
 
     <script src="script.js"></script>

@@ -47,6 +47,7 @@
     position: relative;
     height: 100%;
     width: 70%;
+    overflow: hidden;
 }
 
 
@@ -156,7 +157,7 @@
     align-self: center;
 }
 .chat-container>.my-contact{
-    border-left: 1px solid gray;
+    border-left: 1px solid lightgray;
 }
 .messaggio{
     margin: 25px 0;
@@ -217,4 +218,8 @@
 .fa-smile-o{
     padding: 0 30px 0 20px;
 }
+.posizione{
+    position: relative;
+}
+
 
