@@ -41,16 +41,17 @@
                 </div>
                 <div class="display-flex">
                     <label for="search-input"><i class="fa fa-search color-icon" aria-hidden="true"></i></label>
-                    <input class="search flex-div" id="search-input" type="text"
+                    <input v-model="query"class="search flex-div" id="search-input" type="text"
                         placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <div class="overauto">
-                    <div v-for="element in userDragonball" class="display-flex bg-white" :class="{'bg-gray': element.name === activeUser.name}" @click="onUserClick(element)">
+                    <div v-for="element of searchUser" class="display-flex bg-white"
+                        :class="{'bg-gray': element.name === activeUser.name}" @click="onUserClick(element)">
                         <div class="myavatar display-flex">
                             <img :src="element.avatar" alt="">
                             <div class="flex-div display-flex flex-column">
                                 <div> <strong>{{element.name}}</strong></div>
-                                <div></div>
+                                <div>{{element.messages[element.messages.length-1].text}}</div>
                             </div>
                         </div>
 
@@ -64,7 +65,7 @@
                     </div>
                     <div class="flex-div flex-column">
                         <strong>{{activeUser.name}}</strong>
-                        <p>Ultimo accesso alle {{ activeUserLastAcces}}</p>
+                        <p>Ultimo accesso oggi alle {{ activeUserLastAcces}}</p>
                     </div>
                     <div class="myicon display-flex">
                         <a href="#"><i class="fa fa-search color-icon" aria-hidden="true"></i></a>
@@ -88,8 +89,9 @@
                         <i class="fa fa-smile-o color-icon" aria-hidden="true"></i>
                     </div>
 
-                    <input v-model="newMessages" class="search flex-div" type="text" placeholder="Scrivi un messaggio" @keyup.enter="addMessages">
-                    
+                    <input v-model="newMessages" class="search flex-div" type="text" placeholder="Scrivi un messaggio"
+                        @keyup.enter="addMessages">
+
 
                     <div><i class="fa fa-microphone color-icon" aria-hidden="true"></i></div>
 
