@@ -26,7 +26,7 @@
 .container{
     margin: auto;
     margin-top: 10vh;
-    height: 800px;
+    height: 801px;
     max-width: 80%;
     position: relative;
     z-index: 1;
@@ -52,7 +52,7 @@
 .my-contact{
     padding:  8px 15px;
     background-color: rgb(237, 237, 237);
-    border-left: 1px solid gray;
+    
 }
 
 .myavatar img{
@@ -98,7 +98,12 @@
 .flex-column{
     display: flex;
     flex-direction: column;
-    padding: 10px;  
+    padding: 5px;
+    
+}
+
+.bg-white .flex-column{
+    padding: 10px;
 }
 
 .bg-white{
@@ -113,7 +118,6 @@
 }
 
 .search{
-    width: 100%;
     border-radius: 15px;
     height: 35px;
     padding: 5px;
@@ -122,14 +126,72 @@
     background-color: rgb(229, 220, 213);
     width: 100%;
     height: 90%;
-    overflow: hidden;
+    overflow: auto;
+    position: relative;
+    padding: 10px 10px 40px 10px;
 }
 
 .writetext{
     height: 50px;
     position: absolute;
-    bottom:5px;
+    bottom:9px;
     background-color: rgb(237, 237, 237);
     align-items: center;
-    width: 100%
+    width: 100%;
+    padding: 20px;
 }
+.chat-container>.my-contact{
+    border-left: 1px solid gray;
+}
+.messaggio{
+    margin: 25px 0;
+    
+    
+    
+
+}
+
+.received{
+    background-color: white;
+    padding: 20px;
+    align-self: flex-start;
+    border-radius: 10px;
+    position: relative;
+    
+}
+
+.sent{
+    background: #dcf8c0;
+    padding: 20px;
+    align-self: flex-end;
+    border-radius: 10px;
+    position: relative;
+    
+}
+
+.sent .spunta{
+    color: #dcf8c0;
+    position: absolute;
+    right: -6px;
+    top: -16px;   
+    max-width: 50%;
+}
+
+.received .spunta{
+    position: absolute;
+    color: white;
+    left: -6px;
+    top: -16px;
+}
+.data{
+    position: absolute;
+    font-size: 10px;
+    color: gray;
+    bottom: 2px;
+    right: 5px;
+}
+
+.bg-gray{
+    background-color: lightgray;
+}
+
