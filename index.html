@@ -40,7 +40,7 @@
 
                 </div>
                 <div class="display-flex">
-                    <label for="search-input"><i class="fa fa-search color-icon" aria-hidden="true"></i></label>
+                    <label for="search-input"><i class="fa fa-search color-icon searchcontact" aria-hidden="true"></i></label>
                     <input v-model="query"class="search flex-div" id="search-input" type="text"
                         placeholder="Cerca o inizia una nuova chat">
                 </div>
@@ -90,10 +90,11 @@
                     </div>
 
                     <input v-model="newMessages" class="search flex-div" type="text" placeholder="Scrivi un messaggio"
-                        @keyup.enter="addMessages">
+                        @keyup.enter="addMessages" @click="messaggioChange">
 
 
-                    <div><i class="fa fa-microphone color-icon" aria-hidden="true"></i></div>
+                    <div v-if="!messaggio"><i class="fa fa-microphone color-icon" aria-hidden="true"></i></div>
+                    <div v-else><i class="fa fa-paper-plane color-icon" aria-hidden="true "@click="addMessages"></i></div>
 
                 </div>
 

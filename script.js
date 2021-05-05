@@ -1,6 +1,7 @@
 const app = new Vue({
     el: "#app",
     data: {
+        messaggio: false,
         newMessages: "",
         query:"",
         userDragonball: globalUsersList,
@@ -77,6 +78,8 @@ const app = new Vue({
             return this.newMessages = "";
 
 
+        },messaggioChange:function(){
+            this.messaggio=true
         }
 
 
