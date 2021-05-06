@@ -52,10 +52,12 @@ const app = new Vue({
                     text: this.newMessages,
                     status: 'sent',
                     date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    showPop: false
-                    
-                }) 
-                this.scrollToBottom() ;
+                    showPop: false,
+                    messaggioDelet: false,
+
+
+                })
+                this.scrollToBottom();
 
                 setTimeout(() => {
                     if (this.activeUser.name === 'Vegeta') {
@@ -63,6 +65,8 @@ const app = new Vue({
                             text: "Muori Karot",
                             status: 'received',
                             date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+
                             showPop: false
                         }
                         )
@@ -71,6 +75,8 @@ const app = new Vue({
                             text: "Hai trovato le sfere?",
                             status: 'received',
                             date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+
                             showPop: false
                         }
                         )
@@ -78,60 +84,76 @@ const app = new Vue({
                         this.activeUser.messages.push({
                             text: "Goku abbiamo bisogno di soldi torna",
                             status: 'received',
-                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+                            showPop: false
                         }
                         )
                     } if (this.activeUser.name === 'Crilin') {
                         this.activeUser.messages.push({
                             text: "Amico mio Freezer vuole uccidermi",
                             status: 'received',
-                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+                            showPop: false
                         }
                         )
                     } if (this.activeUser.name === 'Freezer') {
                         this.activeUser.messages.push({
                             text: "Sparisci scimmione",
                             status: 'received',
-                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+                            showPop: false
                         }
                         )
                     } if (this.activeUser.name === 'Piccolo') {
                         this.activeUser.messages.push({
                             text: "Goku tuo figlio è una pappamolla",
                             status: 'received',
-                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+                            showPop: false
                         }
                         )
                     } if (this.activeUser.name === 'Beerus') {
                         this.activeUser.messages.push({
                             text: "Ho fame quando arrivi",
                             status: 'received',
-                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+                            showPop: false
                         }
                         )
                     } if (this.activeUser.name === 'Maestro Muten') {
                         this.activeUser.messages.push({
                             text: "Vuoi portarmi qualche giornale sconcio?",
                             status: 'received',
-                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+                            showPop: false
                         }
                         )
                     } if (this.activeUser.name === 'Gohan') {
                         this.activeUser.messages.push({
                             text: "Padre non voglio più allenarmi voglio studiare",
                             status: 'received',
-                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+                            showPop: false
                         }
                         )
                     } if (this.activeUser.name === 'Goten') {
                         this.activeUser.messages.push({
                             text: "La mamma mi ha detto che ha bisogno di soldi",
                             status: 'received',
-                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            messaggioDelet: false,
+                            showPop: false
                         }
                         )
                     }
-                    this.scrollToBottom() ;
+                    this.scrollToBottom();
                 }, 1000)
 
                 return this.newMessages = "";
@@ -146,12 +168,17 @@ const app = new Vue({
         scrollToBottom() {
             this.$nextTick(() => {
                 const Htmlelemento = this.$refs.chatContainer;
-                Htmlelemento.scrollTop=Htmlelemento.scrollHeight;
+                Htmlelemento.scrollTop = Htmlelemento.scrollHeight;
             });
         },
-       
+
+        messaggioCancellato: function (index) {
+            console.log(this.activeUser.messages[index])
+            this.activeUser.messages[index].messaggioDelet = true
+        }
 
 
-    }
+    },
     
+
 })

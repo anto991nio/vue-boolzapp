@@ -241,7 +241,7 @@
 .pop{
     position: absolute;
     padding: 10px;
-    left: -50px;
+    left: -150px;
     z-index: 2;
     background-color: rgb(237, 237, 237);
     border-radius: 5px;
