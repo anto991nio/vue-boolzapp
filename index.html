@@ -17,7 +17,7 @@
 
     <div id="app">
 
-        <div class="container display-flex bordonero">
+        <div class="container display-flex bordonero ">
             <div class="contact-container bordonero">
                 <div class="display-flex my-contact bordonero" @click="messaggioRiChange">
                     <div class="myavatar display-flex">
@@ -53,9 +53,9 @@
                             <div class="flex-div display-flex flex-column ">
                                 <div> <strong>{{element.name}}</strong></div>
                                 <div>{{element.messages[element.messages.length-1].text}}</div>
-                                
+
                             </div>
-                            
+
                         </div>
                         <div class="data">{{ activeUserLastAcces}}</div>
                     </div>
@@ -76,12 +76,18 @@
                         <a href="#"><i class="fa fa-align-justify color-icon" aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <div class="bg-chat display-flex flex-column" @click="messaggioRiChange">
-                    <div v-for="messages of activeUser.messages" class="messaggio display-flex flex-column">
+                <div class="bg-chat display-flex flex-column" @click="messaggioRiChange" ref="chatContainer">
+                    <div v-for="(messages,index) of activeUser.messages" class="messaggio display-flex flex-column">
                         <span :class="messages.status">{{messages.text}}<i class="fa fa-caret-down fa-3x spunta"
                                 aria-hidden="true"></i>
-                            <span class="data">{{formattaData(messages.date)}}</span>
+                            <span class="data" >{{formattaData(messages.date)}}</span>
+                            <i class="fa fa-chevron-down" aria-hidden="true" @click="messages.showPop=true"></i>
+                            <div v-if="messages.showPop" class="pop" >
+                                Cancella il messaggio
+                            </div>
+                           
                         </span>
+
 
                     </div>
 
@@ -89,15 +95,17 @@
                 </div>
                 <div class="display-flex writetext">
                     <div>
-                        <i class="fa fa-smile-o color-icon" aria-hidden="true"></i>
+                        <a href="#"><i class="fa fa-smile-o color-icon" aria-hidden="true"></i></a>
                     </div>
 
                     <input v-model="newMessages" class="search flex-div" type="text" placeholder="Scrivi un messaggio"
                         @keyup.enter="addMessages" @click="messaggioChange">
 
 
-                    <div v-if="!messaggio"><i class="fa fa-microphone color-icon" aria-hidden="true"></i></div>
-                    <div v-else><i class="fa fa-paper-plane color-icon" aria-hidden="true " @click="addMessages"></i>
+                    <div v-if="!messaggio"><a href="#"><i class="fa fa-microphone color-icon"
+                                aria-hidden="true"></i></a></div>
+                    <div v-else><a href="#"><i class="fa fa-paper-plane color-icon" aria-hidden="true "
+                                @click="addMessages"></i></a>
                     </div>
 
                 </div>

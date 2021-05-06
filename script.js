@@ -1,33 +1,18 @@
 const app = new Vue({
     el: "#app",
     data: {
+        
         messaggio: false,
         newMessages: "",
         query: "",
         userDragonball: globalUsersList,
         activeUser: {
-            name: 'Vegeta',
-            avatar: 'img/Vegeta.png',
-            visible: true,
-            messages: [
-                {
-                    date: '13/08/2020 15:30:55',
-                    text: 'Ciao Vegeta',
-                    status: 'sent'
-                },
-                {
-                    date: '10/01/2020 15:50:00',
-                    text: 'Riesci a trasformarti in super sayan 3?',
-                    status: 'sent'
-                },
-                {
-                    date: '10/01/2020 16:15:22',
-                    text: 'Sparisci Kakarot',
-                    status: 'received'
-                }
-            ],
+
         },
+    }, mounted() {
+        this.activeUser = this.userDragonball[0]
     },
+
     computed: {
         activeUserLastAcces() {
             const msgReceived = this.activeUser.messages.filter((msg) => msg.status === 'received')
@@ -35,7 +20,7 @@ const app = new Vue({
             return this.formattaData(lastMsg)
 
         }, searchUser: function () {
-            return this.userDragonball.filter(element => element.name.includes(this.query))
+            return this.userDragonball.filter(element => element.name.toLowerCase().startsWith(this.query.toLowerCase()))
                 .map((element) => {
                     if (this.query == "")
                         return element;
@@ -59,100 +44,114 @@ const app = new Vue({
             return dataFormString.format("HH:mm");
         }, addMessages() {
 
+            if (this.newMessages === "") {
+                return
 
-            this.activeUser.messages.push({
-                text: this.newMessages,
-                status: 'sent',
-                date: moment().format("DD/MM/YYYY HH:mm:ss")
-            })
+            } else {
+                this.activeUser.messages.push({
+                    text: this.newMessages,
+                    status: 'sent',
+                    date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                    showPop: false
+                    
+                }) 
+                this.scrollToBottom() ;
 
-            setTimeout(() => {
-                if (this.activeUser.name === 'Vegeta') {
-                    this.activeUser.messages.push({
-                        text: "Muori Karot",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                setTimeout(() => {
+                    if (this.activeUser.name === 'Vegeta') {
+                        this.activeUser.messages.push({
+                            text: "Muori Karot",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            showPop: false
+                        }
+                        )
+                    } if (this.activeUser.name === 'Bulma') {
+                        this.activeUser.messages.push({
+                            text: "Hai trovato le sfere?",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                            showPop: false
+                        }
+                        )
+                    } if (this.activeUser.name === 'Chichi') {
+                        this.activeUser.messages.push({
+                            text: "Goku abbiamo bisogno di soldi torna",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                        }
+                        )
+                    } if (this.activeUser.name === 'Crilin') {
+                        this.activeUser.messages.push({
+                            text: "Amico mio Freezer vuole uccidermi",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                        }
+                        )
+                    } if (this.activeUser.name === 'Freezer') {
+                        this.activeUser.messages.push({
+                            text: "Sparisci scimmione",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                        }
+                        )
+                    } if (this.activeUser.name === 'Piccolo') {
+                        this.activeUser.messages.push({
+                            text: "Goku tuo figlio è una pappamolla",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                        }
+                        )
+                    } if (this.activeUser.name === 'Beerus') {
+                        this.activeUser.messages.push({
+                            text: "Ho fame quando arrivi",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                        }
+                        )
+                    } if (this.activeUser.name === 'Maestro Muten') {
+                        this.activeUser.messages.push({
+                            text: "Vuoi portarmi qualche giornale sconcio?",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                        }
+                        )
+                    } if (this.activeUser.name === 'Gohan') {
+                        this.activeUser.messages.push({
+                            text: "Padre non voglio più allenarmi voglio studiare",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                        }
+                        )
+                    } if (this.activeUser.name === 'Goten') {
+                        this.activeUser.messages.push({
+                            text: "La mamma mi ha detto che ha bisogno di soldi",
+                            status: 'received',
+                            date: moment().format("DD/MM/YYYY HH:mm:ss"),showPop: false
+                        }
+                        )
                     }
-                    )
-                } if (this.activeUser.name === 'Bulma') {
-                    this.activeUser.messages.push({
-                        text: "Hai trovato le sfere?",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    }
-                    )
-                } if (this.activeUser.name === 'Chichi') {
-                    this.activeUser.messages.push({
-                        text: "Goku abbiamo bisogno di soldi torna",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    }
-                    )
-                } if (this.activeUser.name === 'Crilin') {
-                    this.activeUser.messages.push({
-                        text: "Amico mio Freezer vuole uccidermi",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    }
-                    )
-                } if (this.activeUser.name === 'Freezer') {
-                    this.activeUser.messages.push({
-                        text: "Sparisci scimmione",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    }
-                    )
-                } if (this.activeUser.name === 'Piccolo') {
-                    this.activeUser.messages.push({
-                        text: "Goku tuo figlio è una pappamolla",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    }
-                    )
-                } if (this.activeUser.name === 'Beerus') {
-                    this.activeUser.messages.push({
-                        text: "Ho fame quando arrivi",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    }
-                    )
-                } if (this.activeUser.name === 'Maestro Muten') {
-                    this.activeUser.messages.push({
-                        text: "Vuoi portarmi qualche giornale sconcio?",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    }
-                    )
-                } if (this.activeUser.name === 'Gohan') {
-                    this.activeUser.messages.push({
-                        text: "Padre non voglio più allenarmi voglio studiare",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    }
-                    )
-                } if (this.activeUser.name === 'Goten') {
-                    this.activeUser.messages.push({
-                        text: "La mamma mi ha detto che ha bisogno di soldi",
-                        status: 'received',
-                        date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    }
-                    )
-                }
+                    this.scrollToBottom() ;
+                }, 1000)
 
-            }, 1000)
-
-            return this.newMessages = "";
-
+                return this.newMessages = "";
+            }
 
         }, messaggioChange: function () {
             this.messaggio = true
         }, messaggioRiChange: function () {
             this.messaggio = false
 
-        }
-
+        },
+        scrollToBottom() {
+            this.$nextTick(() => {
+                const Htmlelemento = this.$refs.chatContainer;
+                Htmlelemento.scrollTop=Htmlelemento.scrollHeight;
+            });
+        },
+       
 
 
     }
-
+    
 })

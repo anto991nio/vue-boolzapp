@@ -222,4 +222,27 @@
     position: relative;
 }
 
+.fa-chevron-down{
+    display: none;
+}
 
+.sent
+.fa-chevron-down{
+    color: grey;
+    font-size: 10px;
+    position: absolute;
+    top: 5px;
+}
+
+.sent:hover  .fa-chevron-down{
+    display: inline-block;
+}
+
+.pop{
+    position: absolute;
+    padding: 10px;
+    left: -50px;
+    z-index: 2;
+    background-color: rgb(237, 237, 237);
+    border-radius: 5px;
+}
