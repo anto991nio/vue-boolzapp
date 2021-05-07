@@ -243,6 +243,12 @@
     padding: 10px;
     left: -150px;
     z-index: 2;
-    background-color: rgb(237, 237, 237);
+    background-color: white;
     border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.pop:hover{
+    background-color: rgba(237, 237, 237 ,.6 );
 }

@@ -52,7 +52,7 @@
                             <img :src="element.avatar" alt="">
                             <div class="flex-div display-flex flex-column ">
                                 <div> <strong>{{element.name}}</strong></div>
-                                <div>{{element.messages[element.messages.length-1].text}}</div>
+                                <div>{{lastMsg(element.messages)}}</div>
 
                             </div>
 
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chat-container bordonero" >
+            <div class="chat-container bordonero">
                 <div class="display-flex my-contact bordonero" @click="messaggioRiChange">
                     <div class="myavatar display-flex">
                         <img :src="activeUser.avatar" alt="">
@@ -76,31 +76,33 @@
                         <a href="#"><i class="fa fa-align-justify color-icon" aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <div class="bg-chat display-flex flex-column" @click="messaggioRiChange"  ref="chatContainer">
+                <div class="bg-chat display-flex flex-column" @click="messaggioRiChange" ref="chatContainer">
                     <div v-for="(messages,index) of activeUser.messages" class="messaggio display-flex flex-column">
-                        <span  v-if="!messages.messaggioDelet":class="messages.status">{{messages.text}}<i class="fa fa-caret-down fa-3x spunta"
-                                aria-hidden="true"></i>
+                        <span v-if="!messages.messaggioDelet" :class="messages.status" tabindex="-1"
+                            @click="msgClick(messages, $event)" @blur="msgOut(messages)">{{messages.text}}<i
+                                class="fa fa-caret-down fa-3x spunta" aria-hidden="true"></i>
                             <span class="data">{{formattaData(messages.date)}}</span>
-                            <i class="fa fa-chevron-down" aria-hidden="true" @click="messages.showPop=!messages.showPop"></i>
-                            <a href="#"><div v-if="messages.showPop" class="pop" @click="messaggioCancellato(index)">
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            <div v-if="messages.showPop" class="pop" @click="messaggioCancellato(index)">
                                 Cancella il messaggio
-                            </div></a>
-        
-                        </span>
-                        <span v-else="messages.messaggioDelet" :class="messages.status">Questo messaggio è cancellato<i class="fa fa-caret-down fa-3x spunta"
-                            aria-hidden="true"></i>
-                        <span class="data">{{formattaData(messages.date)}}</span>
-                        <i class="fa fa-chevron-down" aria-hidden="true" @click="messages.showPop=true"></i>
-                        
+                            </div>
 
-                    </span>
+
+                        </span>
+                        <span v-else="messages.messaggioDelet" :class="messages.status">Questo messaggio è cancellato<i
+                                class="fa fa-caret-down fa-3x spunta" aria-hidden="true"></i>
+                            <span class="data">{{formattaData(messages.date)}}</span>
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+
+
+                        </span>
 
 
                     </div>
 
 
                 </div>
-                <div class="display-flex writetext" >
+                <div class="display-flex writetext">
                     <div>
                         <a href="#"><i class="fa fa-smile-o color-icon" aria-hidden="true"></i></a>
                     </div>

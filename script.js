@@ -1,24 +1,26 @@
 const app = new Vue({
     el: "#app",
     data: {
-        
+
         messaggio: false,
         newMessages: "",
         query: "",
         userDragonball: globalUsersList,
-        activeUser: {
-
-        },
-    }, mounted() {
-        this.activeUser = this.userDragonball[0]
+        activeUser: "",
     },
 
     computed: {
-        activeUserLastAcces() {
-            const msgReceived = this.activeUser.messages.filter((msg) => msg.status === 'received')
-            const lastMsg = msgReceived[msgReceived.length - 1].date;
-            return this.formattaData(lastMsg)
 
+        //Funzione che mi restituisce l'ultimo accesso
+        activeUserLastAcces() {
+            if (this.activeUser === "") {
+                return
+            } else {
+                const msgReceived = this.activeUser.messages.filter((msg) => msg.status === 'received')
+                const lastMsg = msgReceived[msgReceived.length - 1].date;
+                return this.formattaData(lastMsg)
+            }
+            //Funzione che mi filtra gli utenti in base al nome
         }, searchUser: function () {
             return this.userDragonball.filter(element => element.name.toLowerCase().startsWith(this.query.toLowerCase()))
                 .map((element) => {
@@ -37,11 +39,16 @@ const app = new Vue({
 
     },
     methods: {
+        //questa funzione seleziona l'utente da mostrare
         onUserClick(clickedUser) {
             this.activeUser = clickedUser;
+
+            //Questa funzione formatta la data
         }, formattaData(dataString) {
             const dataFormString = moment(dataString, "DD/MM/YYYY HH:mm:ss");
             return dataFormString.format("HH:mm");
+
+            //Questa funzione permette di inviare un messaggio all'utente scelto 
         }, addMessages() {
 
             if (this.newMessages === "") {
@@ -59,6 +66,7 @@ const app = new Vue({
                 })
                 this.scrollToBottom();
 
+                // Dopo l'invio del messaggio dopo un secondo a seconda dell'utente con cui si parla ci manderà un messaggio personalizzato
                 setTimeout(() => {
                     if (this.activeUser.name === 'Vegeta') {
                         this.activeUser.messages.push({
@@ -159,26 +167,63 @@ const app = new Vue({
                 return this.newMessages = "";
             }
 
+            // Fa comparire e scomparire l'icona dell'invio
+
         }, messaggioChange: function () {
             this.messaggio = true
         }, messaggioRiChange: function () {
             this.messaggio = false
 
         },
+
+        // fa scrollare la chat ogni volta che aggiungendo un messaggio ha bisogno di scollare
         scrollToBottom() {
             this.$nextTick(() => {
                 const Htmlelemento = this.$refs.chatContainer;
                 Htmlelemento.scrollTop = Htmlelemento.scrollHeight;
             });
         },
-
+        //Cancella il messaggio selezionato
         messaggioCancellato: function (index) {
             console.log(this.activeUser.messages[index])
             this.activeUser.messages[index].messaggioDelet = true
         }
 
+        // fa comparire il pop
+        , msgClick(message, event) {
+            this.$set(message, "showPop", true);
+            event.currentTarget.focus();
 
-    },
-    
+
+        // fa scomparire il pop
+        }, msgOut(message) {
+            this.$set(message, "showPop", false);
+
+            // Fa in modo che nella sezione dei contatti compaia l'ultimo messaggio 
+        },lastMsg(messages){
+            if(messages.lenght === 0){
+                return "Nessun Messaggio disponibile"
+            }
+            const lastMsg = messages[messages.length-1];
+            let trimmedMsg =lastMsg.text.slice(0, 30);
+
+            if(lastMsg.text.length > 30){
+                trimmedMsg+= "..."
+            }
+
+
+            return trimmedMsg
+        }
+
+
+
+
+
+
+
+    }, mounted() {
+        this.activeUser = this.userDragonball[0]
+    }
+
 
 })
