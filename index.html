@@ -46,13 +46,13 @@
                         placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <div class="overauto" @click="messaggioRiChange">
-                    <div v-for="element of searchUser" class="display-flex bg-white posizione"
+                    <div v-for="element of sort(searchUser)" class="display-flex bg-white posizione"
                         :class="{'bg-gray': element.name === activeUser.name}" @click="onUserClick(element)">
                         <div class="myavatar display-flex ">
                             <img :src="element.avatar" alt="">
                             <div class="flex-div display-flex flex-column ">
                                 <div> <strong>{{element.name}}</strong></div>
-                                <div>{{lastMsg(element.messages)}}</div>
+                                <div>{{lastMsg(element)}}</div>
 
                             </div>
 

@@ -39,6 +39,25 @@ const app = new Vue({
 
     },
     methods: {
+
+
+
+        sort(list){
+            list.sort((userA, userB)=>{
+                const dateA = moment(userA.lastMsgDate, "DD/MM/YYYY HH:mm:ss" );
+                const dateB = moment(userB.lastMsgDate, "DD/MM/YYYY HH:mm:ss" );
+
+                if(dateA.isBefore(dateB)){
+                    return 1;
+                }else if(dateA.isAfter(dateB)){
+                    return -1;
+                }
+
+                return 0;
+            })
+
+            return list
+        },
         //questa funzione seleziona l'utente da mostrare
         onUserClick(clickedUser) {
             this.activeUser = clickedUser;
@@ -200,7 +219,11 @@ const app = new Vue({
             this.$set(message, "showPop", false);
 
             // Fa in modo che nella sezione dei contatti compaia l'ultimo messaggio 
-        },lastMsg(messages){
+        },lastMsg(user){
+            const messages = user.messages;
+
+
+
             if(messages.lenght === 0){
                 return "Nessun Messaggio disponibile"
             }
@@ -211,6 +234,7 @@ const app = new Vue({
                 trimmedMsg+= "..."
             }
 
+            this.$set(user, "lastMsgDate",lastMsg.date);
 
             return trimmedMsg
         }
@@ -222,7 +246,7 @@ const app = new Vue({
 
 
     }, mounted() {
-        this.activeUser = this.userDragonball[0]
+        this.activeUser = this.userDragonball[2]
     }
 
 
