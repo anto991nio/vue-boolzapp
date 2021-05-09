@@ -25,7 +25,7 @@
 
 .container{
     margin: auto;
-    margin-top: 10vh;
+    margin-top: 50px;
     height: 801px;
     max-width: 80%;
     position: relative;
@@ -251,4 +251,57 @@
 
 .pop:hover{
     background-color: rgba(237, 237, 237 ,.6 );
+}
+
+.namerespon{
+    display: none;
+}
+.searchresponsive{
+    display: none;
+}
+
+@media all and (max-width: 768px){
+    .msgsection{
+        display: none;
+    }
+    .container{
+        max-width: 100%;
+        margin: 0;
+        height: 100vh;
+    }
+    .contact-container{
+        width: 20%;
+    }
+    .chat-container{
+        width: 80%;
+    }
+
+    .overauto{
+        overflow: auto;
+        height: 650px ;
+        
+    }
+    .namerespon{
+        display: block;
+        text-align: center;
+        margin-left: 5px;
+    }
+    .searchresponsive{
+        display: inline-block;
+    }
+    
+
+}
+
+@media all and (max-width: 640px){
+    .namerespon{
+        display: none;
+        
+    }
+}
+
+@media all and (max-width: 450px){
+    .searchresponsive{
+        display: none;
+    }
 }

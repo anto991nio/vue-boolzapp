@@ -24,7 +24,7 @@
                         <img src="img\songoku.jpg" alt="">
                     </div>
                     <div class="flex-div"></div>
-                    <div class="myicon display-flex">
+                    <div class="myicon display-flex msgsection">
                         <a href="#"><i class="fa fa-circle-o-notch color-icon" aria-hidden="true"></i></a>
                         <a href="#"><i class="fa fa-comment color-icon" aria-hidden="true"></i></a>
                         <a href="#"><i class="fa fa-align-justify color-icon" aria-hidden="true"></i></a>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="mynoti bordonero display-flex" @click="messaggioRiChange">
                     <div><i class="fa fa-bell-slash fa-lg noifica" aria-hidden="true"></i></div>
-                    <div class="flex-div display-flex flex-column">
+                    <div class="flex-div display-flex flex-column msgsection">
                         <strong>Ricevi notifiche di nuovi messaggi</strong>
                         <a href="#">Attiva notifiche desktop</a>
 
@@ -42,22 +42,26 @@
                 <div class="display-flex" @click="messaggioRiChange">
                     <label for="search-input"><i class="fa fa-search color-icon searchcontact"
                             aria-hidden="true"></i></label>
-                    <input v-model="query" class="search flex-div" id="search-input" type="text"
+                    <input v-model="query" class="search flex-div msgsection" id="search-input" type="text"
                         placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="query" class="search flex-div searchresponsive" id="search-input" type="text"
+                        placeholder="Cerca">
                 </div>
                 <div class="overauto" @click="messaggioRiChange">
                     <div v-for="element of sort(searchUser)" class="display-flex bg-white posizione"
                         :class="{'bg-gray': element.name === activeUser.name}" @click="onUserClick(element)">
                         <div class="myavatar display-flex ">
-                            <img :src="element.avatar" alt="">
-                            <div class="flex-div display-flex flex-column ">
+                            <img  :src="element.avatar" alt="">
+                            <div class="namerespon"> <strong>{{element.name}}</strong></div>
+                            <div class="flex-div display-flex flex-column msgsection">
                                 <div> <strong>{{element.name}}</strong></div>
                                 <div>{{lastMsg(element)}}</div>
+                                <div class="data">{{formattaData (element.messages[element.messages.length-1].date)}}
+                                </div>
 
                             </div>
 
                         </div>
-                        <div class="data">{{formattaData (element.messages[element.messages.length-1].date)}}</div>
                     </div>
                 </div>
             </div>
