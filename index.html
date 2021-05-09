@@ -44,8 +44,9 @@
                             aria-hidden="true"></i></label>
                     <input v-model="query" class="search flex-div msgsection" id="search-input" type="text"
                         placeholder="Cerca o inizia una nuova chat">
-                    <input v-model="query" class="search flex-div searchresponsive" id="search-input" type="text"
-                        placeholder="Cerca">
+                        <div class="searchresponsive"><input v-model="query" class="search flex-div " id="search-input" type="text"
+                            ></div>
+                    
                 </div>
                 <div class="overauto" @click="messaggioRiChange">
                     <div v-for="element of sort(searchUser)" class="display-flex bg-white posizione"
