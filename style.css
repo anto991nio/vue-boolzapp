@@ -299,6 +299,13 @@
         display: none;
         
     }
+    .fa-microphone,
+.fa-paper-plane{
+    padding: 0 10px;
+}
+.fa-smile-o{
+    padding: 0 10px;
+}
 }
 
 @media all and (max-width: 450px){
